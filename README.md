@@ -1,17 +1,22 @@
-# NLog #
-
-Get GitHub address!
-
-Outline
-
 ### Application logging
 
+This example shows a way to do application logging with an ASNA Visual RPG Windows application. 
+
+
+https://github.com/ASNA/nlog-web-example
+
 #### What is and why do it
+
+Application logging 
+
+
 Show example log
 
 Trace statements, timing statement and exception
 
 [A good free log viewer](https://kittyfisto.github.io/Tailviewer/)
+
+
 
 #### Ways to log
 
@@ -21,7 +26,7 @@ There are many very useful open source logging packages available for .NET. For 
 
 #### How most logs work
 
-Loggers generally can log to many log targets, such as SQL Server, email, or CSV files), but this article focuses on what is probably the most frequently-used target, a text file.
+Loggers generally log to many log targets, such as SQL Server, email, or CSV files), but this article focuses on what is probably the most frequently-used target, a text file.
 
 Most loggers are implemented with two primary concepts: 
 
@@ -46,28 +51,95 @@ These steps are covered in the video for this example:
 5. Write log entries in your code
 
 
+#### Very simple NLog example
+
+This very simple example creates a log file in the application's `Bin` folder. 
+
+**Very basic NLog configuration**
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <targets>
+        <target name="logfile" xsi:type="File" fileName="warren-zevon.txt" />
+    </targets>
+
+    <rules>
+        <logger name="MyLogger" minlevel="Trace" writeTo="logfile" />
+    </rules>
+</nlog>
+```
+
+> Be sure to set the config file's `Build Action` property to `content` and the `Copy to Output Directory` property to `Copy always`. This ensures NLog can find the config file at runtime. If these properties aren't set NLog won't work! 
+
+![config-file-properties.png](https://asna.com/filebin/marketing/article-figures/nlog/config-file-properties.png)
+
+<small>Setting the config file's properties</small>
+ 
+
+**Basic AVR code to write a log entry.**
+
+```
+Using System
+Using NLog
+
+BegClass Form1 Extends(System.Windows.Forms.Form) +
+               Access(*Public) Partial(*Yes)
+
+   DclFld log Type(NLog.Logger)
+
+    BegSr Form1_Load Access(*Private) Event(*this.Load)
+        DclSrParm sender *Object
+        DclSrParm e System.EventArgs
+        
+        log = LogManager.GetLogger("MyLogger")
+    EndSr
+ 
+    BegSr button1_Click Access(*Private) Event(*this.button1.Click)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        log.Trace("Hello, world') 
+    EndSr
+    
+EndClass
+```
+
+Very basic NLog configuration
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <targets>
+        <target name="logfile" xsi:type="File" fileName="warren-zevon.txt" />
+    </targets>
+
+    <rules>
+        <logger name="MyLogger" minlevel="Trace" writeTo="logfile" />
+    </rules>
+</nlog>
+```
+
+
+
+
+
+
+
 #### Using NLog internal log file 
 
 
 
 
+### Helpful links
 
-### Use PowerShell to manage Windows Event Log
+* [NLog on GitHub](https://github.com/NLog/NLog)
+* [NLog on GitHub Wiki](https://github.com/NLog/NLog/wiki)
+* [NLog Web site and additional docs](https://nlog-project.org/)
 
-Register a new Event Log and Event Log source with the Windows Event Log
-
-```
-New-EventLog -LogName CoolWebApp -Source "Production"
-```
-
-Unregister an Event Log
-
-```
-Remove-Eventlog -logname "CoolWebApp"
-```
-
-Show ten most recent entries in a log
-
-```
-get-eventlog -logname CoolWebApp -newest 10
-```
+* [TailViewer: A good, open source log viewer](https://kittyfisto.github.io/Tailviewer/). A good, basic log viewer that is easy to use.
+* [LogViewPlus: A good commercial log viewer ($45-$95 US per seat)](https://www.logviewplus.com/). A more complex and capable log viewer--probably overkill unless you investigate logs a lot.

@@ -1,0 +1,13 @@
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog-win-example.vrprojAssemblyReference.cache
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog_win_example.Form1.resources
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog_win_example.Resources.resources
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog-win-example.vrproj.GenerateResource.cache
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog-win-example.vrproj.CoreCompileInputs.cache
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\bin\Debug\nlog.config
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\bin\Debug\nlog_win_example.exe
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\bin\Debug\nlog_win_example.pdb
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\bin\Debug\NLog.dll
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\bin\Debug\NLog.xml
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog-win-example.vrproj.CopyComplete
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog_win_example.exe
+C:\Users\roger\Documents\Programming\AVR\nlog-win-example\nlog-win-example\obj\Debug\nlog_win_example.pdb
