@@ -4,43 +4,53 @@ Using NLog
 BegClass Form1 Extends(System.Windows.Forms.Form) +
                Access(*Public) Partial(*Yes)
 
-	/region Default Constructor
-	
-	BegConstructor Access(*Public)
-		//
-		// Required for Windows Form Designer support
-		//
-		InitializeComponent()
+    /region Default Constructor
+    
+    BegConstructor Access(*Public)
+        //
+        // Required for Windows Form Designer support
+        //
+        InitializeComponent()
 
-		//
-		// TODO: Add any constructor code after InitializeComponent call
-		//
-	EndConstructor
+        //
+        // TODO: Add any constructor code after InitializeComponent call
+        //
+    EndConstructor
 
-	/endregion
+    /endregion
 
-   DclFld log Type(NLog.Logger)
+    DclFld log Type(NLog.Logger)
 
-	BegSr Form1_Load Access(*Private) Event(*this.Load)
-		DclSrParm sender *Object
-		DclSrParm e System.EventArgs
+    BegSr Form1_Load Access(*Private) Event(*this.Load)
+        DclSrParm sender *Object
+        DclSrParm e System.EventArgs
+
+        log = LogManager.GetLogger("MyLogger")        
+    EndSr
+
+    BegSr Form1_FormClosing Access(*Private) Event(*this.FormClosing)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
         
-        log = LogManager.GetLogger("MyLogger")
-	EndSr
+    EndSr
 
-	BegSr Form1_FormClosing Access(*Private) Event(*this.FormClosing)
-		DclSrParm sender Type(*Object)
-		DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
-        
-		// Occurs when form is closing.    
-		// Put form "housecleaning" code here (ie close files).
-	EndSr
+    
+    BegSr button1_Click Access(*Private) Event(*this.button1.Click)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
 
-	BegSr button1_Click Access(*Private) Event(*this.button1.Click)
-		DclSrParm sender Type(*Object)
-		DclSrParm e Type(System.EventArgs)
+        log.Trace("Button1 clicked") 
+        log.Debug("Button1 clicked to do a debug log entry") 
+    EndSr
+    
+    BegSr button2_Click Access(*Private) Event(*this.button2.Click)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
 
-        log.Trace("Log with basic config") 
-	EndSr
-	
+        DclFLd Zero Type(*Integer4) Inz(0)
+        DclFld Result Type(*Integer4) 
+
+        Result = 88 / Zero     
+    EndSr
+    
 EndClass

@@ -1,5 +1,3 @@
-2022-12-02 11:10:05.0477|TRACE|MyLogger|Log with basic config
-2022-12-02 11:10:05.7646|TRACE|MyLogger|Log with basic config
-2022-12-02 11:10:05.9652|TRACE|MyLogger|Log with basic config
-2022-12-02 11:10:06.1998|TRACE|MyLogger|Log with basic config
-2022-12-02 11:10:06.3991|TRACE|MyLogger|Log with basic config
+2022-12-02 12:11:55.9247|DEBUG|MyLogger|Button1 clicked to do a debug log entry
+2022-12-02 12:11:56.2706|DEBUG|MyLogger|Button1 clicked to do a debug log entry
+2022-12-02 12:11:56.7189|DEBUG|MyLogger|Button1 clicked to do a debug log entry

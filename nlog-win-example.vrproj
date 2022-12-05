@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>nlog_win_example</RootNamespace>
     <AssemblyName>nlog_win_example</AssemblyName>
-    <StartupObject>nlog_win_example.Form1</StartupObject>
+    <StartupObject>BegSr Main</StartupObject>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <CompactDs>True</CompactDs>
     <Name>nlog-win-example</Name>
@@ -63,6 +63,10 @@
       <DependentUpon>Form1.vr</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.vr" />
+    <Compile Include="Startup.vr">
+      <SubType>
+      </SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vr</DependentUpon>
     </EmbeddedResource>

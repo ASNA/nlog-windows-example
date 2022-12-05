@@ -1,0 +1,27 @@
+﻿Using System
+Using System.Text
+Using System.Collections.Generic
+
+BegClass Startup Access(*Public)
+
+    BegSr Main Access( *Public ) Shared( *Yes ) 
+        DclSrParm CommandLineArguments Type( *String ) Rank( 1 ) 
+        
+        DclFld f1 Type( Form1 ) New()
+        DclFld logger Type(NLog.Logger) 
+       
+        Try 
+            f1.ShowDialog()
+        Catch ex Type(Exception) 
+            logger = NLog.LogManager.GetLogger("MyLogger")
+            logger.Fatal(ex, ex.Message)
+            
+            NLog.LogManager.Shutdown()
+
+            MsgBox Icon(*Stop) Title("Fatal error") Msg(ex.Message) 
+        Finally
+            f1.Dispose() 
+        EndTry 
+    EndSr
+
+EndClass
